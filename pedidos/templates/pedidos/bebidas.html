@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bebidas</title>
+    <style>
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+        .category-button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Menú de Bebidas</h1>
+
+    <div class="button-container">
+        {% if categorias %}
+            <p>Las categorías de bebidas se están pasando correctamente.</p>
+            {% for categoria in categorias %}
+                <a href="{% url 'pedidos:detalle_bebida' categoria.url %}">
+                    <button class="category-button">{{ categoria.nombre }}</button>
+                </a>
+            {% endfor %}
+        {% else %}
+            <p>No se encontraron categorías de bebidas.</p>
+        {% endif %}
+    </div>
+
+    <a href="{% url 'pedidos:cliente' %}">
+        <button>Regresar al Menú de Cliente</button>
+    </a>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles de Bebidas - {{ categoria|capfirst }}</title>
+</head>
+<body>
+    <h1>Bebidas en la categoría: {{ categoria|capfirst }}</h1>
+    <ul>
+        {% for bebida in bebidas %}
+            <li>{{ bebida }}</li>
+        {% empty %}
+            <li>No hay bebidas disponibles en esta categoría.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'bebidas' %}">
+        <button>Regresar al Menú de Bebidas</button>
+    </a>
+</body>
+</html>

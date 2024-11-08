@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliente</title>
+</head>
+<body>
+    <h1>Menú de Cliente</h1>
+    <p>Aquí puedes hacer tu pedido.</p>
+
+    <div>
+        <a href="{% url 'pedidos:bebidas' %}">
+            <button>Bebidas</button>
+        </a>
+        <a href="{% url 'pedidos:comida' %}">
+            <button>Comida</button>
+        </a>
+    </div>
+    
+    <br>
+
+    <button onclick="location.href='/'">Regresar al Inicio</button>
+</body>
+</html>

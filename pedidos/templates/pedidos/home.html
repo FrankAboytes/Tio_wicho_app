@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tío Wicho App - Inicio</title>
+</head>
+<body>
+    <h1>Bienvenido a Tío Wicho App</h1>
+    <p>¿Eres cliente o mesero?</p>
+    <div>
+        <a href="{% url 'pedidos:cliente' %}">
+            <button>Cliente</button>
+        </a>
+        <a href="{% url 'pedidos:mesero' %}">
+            <button>Mesero</button>
+        </a>
+    </div>
+</body>
+</html>

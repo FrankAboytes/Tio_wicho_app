@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vista del Mesero</title>
+    <style>
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+        .category-button, .action-button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Menú del Mesero</h1>
+
+    <div class="button-container">
+        <a href="{% url 'pedidos:comida' %}">
+            <button class="category-button">Comida</button>
+        </a>
+        <a href="{% url 'pedidos:bebidas' %}">
+            <button class="category-button">Bebida</button>
+        </a>
+        <a href="{% url 'pedidos:editar_orden' %}">
+            <button class="action-button">Editar Orden</button>
+        </a>
+    </div>
+
+    <a href="{% url 'pedidos:home' %}">
+        <button>Regresar al Inicio</button>
+    </a>
+</body>
+</html>
