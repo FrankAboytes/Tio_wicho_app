@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import re
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +27,7 @@ SECRET_KEY = 'django-insecure-%(2#0!!7z6^!a_g4e$1b=c4t&anb_2@g97-%n4z6g!0g!-qa(3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
 
 
 # Application definition
@@ -38,11 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pedidos',
-    'django.contrib.sites',  # Necesario si integras notificaciones o autenticación
+    'django.contrib.sites', 
+    'corsheaders',# Necesario si integras notificaciones o autenticación
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -56,7 +60,7 @@ ROOT_URLCONF = 'tio_wicho_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,6 +74,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'tio_wicho_app.wsgi.application'
+ASGI_APPLICATION = 'tio_wicho_app.asgi.application'
 
 
 # Database
@@ -116,10 +121,34 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
-
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_COOKIE_NAME = 'sessionid'
+SESSION_COOKIE_AGE = 1209600  # 2 semanas
+SESSION_SAVE_EVERY_REQUEST = True
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+
+
+LOGIN_URL = 'pedidos:home'
+LOGIN_REDIRECT_URL = '/'
+
+CORS_ALLOW_ALL_ORIGINS = False
+
+ALLOWED_HOSTS = ['localhost',
+                '127.0.0.1',
+                '1839-207-249-176-128.ngrok-free.app',
+                '192.168.0.1',
+                ]
+
+NGROK_URL = os.getenv('NGROK_URL', 'https://1839-207-249-176-128.ngrok-free.app')
+
+CORS_ALLOWED_ORIGINS = [NGROK_URL] if NGROK_URL else []
+CSRF_TRUSTED_ORIGINS = [NGROK_URL] if NGROK_URL else []
+

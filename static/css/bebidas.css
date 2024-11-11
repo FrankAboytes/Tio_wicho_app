@@ -1,0 +1,91 @@
+/* Estilos generales */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    background-color: #000000; /* Fondo negro */
+    margin: 0;
+    padding: 30px;
+    color: #ffffff;
+    text-align: center;
+}
+
+h1 {
+    font-size: 60px; /* Tamaño de título grande */
+    color: #ffffff;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+p {
+    font-size: 24px;
+    color: #b3b3b3;
+    margin-bottom: 20px;
+}
+
+/* Contenedor de botones de categorías */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+/* Botón de categoría */
+.category-button {
+    background-color: #ff7b00; /* Color naranja */
+    color: white;
+    font-size: 24px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px 0; /* Espaciado entre botones */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+    width: 100%; /* Hace que el botón ocupe el ancho del contenedor */
+    max-width: 400px;
+    text-decoration: none;
+}
+
+.category-button:hover {
+    background-color: #b33900; /* Efecto hover */
+}
+
+/* Botón de regreso */
+a button {
+    background-color: #28a745; /* Verde para el botón de regreso */
+    color: white;
+    font-size: 24px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 30px;
+    max-width: 400px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+}
+
+a button:hover {
+    background-color: #218838; /* Hover para el botón de regreso */
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Ajustes para pantallas grandes */
+@media (min-width: 600px) {
+    h1 {
+        font-size: 80px; /* Título más grande en pantallas grandes */
+    }
+
+    p, .category-button, a button {
+        font-size: 28px;
+    }
+}

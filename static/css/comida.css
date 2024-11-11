@@ -1,0 +1,95 @@
+/* Estilos generales para la interfaz del Menú de Comida */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    background-color: #000000; /* Fondo negro */
+    margin: 0;
+    padding: 30px;
+    color: #ffffff;
+    text-align: center;
+}
+
+h1 {
+    font-size: 60px; /* Tamaño de título grande */
+    color: #ffffff;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+p {
+    font-size: 24px; /* Texto de párrafo informativo */
+    color: #b3b3b3;
+    margin-bottom: 20px;
+}
+
+/* Contenedor de botones */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Estilos para los botones de categorías */
+.category-button {
+    background-color: #ff7b00; /* Color naranja para categorías */
+    color: white;
+    font-size: 28px; /* Tamaño de texto aumentado */
+    padding: 25px 30px; /* Botones más grandes y fáciles de presionar */
+    border: none;
+    border-radius: 10px; /* Bordes ligeramente redondeados */
+    cursor: pointer;
+    margin: 20px 0; /* Espacio adicional entre botones */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 300px; /* Ancho máximo del botón aumentado */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.category-button:hover {
+    background-color: #b33900; /* Efecto hover más oscuro */
+}
+
+/* Botón de regreso al menú de cliente */
+a button {
+    background-color: #28a745; /* Verde para el botón de regreso */
+    color: white;
+    font-size: 24px;
+    padding: 25px 35px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 30px 0;
+    width: 100%;
+    max-width: 450px; /* Aumento del ancho máximo para mayor uniformidad */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+}
+
+a button:hover {
+    background-color: #218838; /* Hover para el botón de regreso */
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Ajustes para pantallas grandes */
+@media (min-width: 600px) {
+    h1 {
+        font-size: 80px; /* Título más grande en pantallas grandes */
+    }
+
+    p {
+        font-size: 28px;
+    }
+
+    .category-button, a button {
+        max-width: 600px; /* Ancho máximo mayor en pantallas grandes */
+    }
+}

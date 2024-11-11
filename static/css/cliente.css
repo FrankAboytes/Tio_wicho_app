@@ -1,0 +1,87 @@
+/* CSS para Menú de Cliente con Tamaño Súper Exagerado */
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    margin: 0;
+    padding: 30px;
+    color: #333;
+}
+
+h1 {
+    font-size: 60px; /* Título extremadamente grande */
+    color: #ffffff;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+p {
+    font-size: 36px; /* Texto del párrafo grande */
+    color: #ffffff;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+button {
+    background-color: #ff7b00;
+    color: white;
+    font-size: 38px; /* Tamaño del texto grande para botones */
+    padding: 30px 40px; /* Botones grandes y fáciles de presionar */
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 20px 0;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 300px; /* Máximo ancho para pantallas grandes */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+button:hover {
+    background-color: #ff7b00;
+}
+
+a button {
+    text-decoration: none;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+button.category-button {
+    background-color: #28a745; /* Color diferente para el botón "Hacer Pedido" */
+}
+
+button.category-button:hover {
+    background-color: #218838; /* Color de hover para el botón "Hacer Pedido" */
+}
+
+/* Ajustes para pantallas grandes */
+@media (min-width: 600px) {
+    h1 {
+        font-size: 64px; /* Ajusta el tamaño del título para pantallas grandes */
+    }
+
+    p {
+        font-size: 32px; /* Ajusta el tamaño del párrafo para pantallas grandes */
+    }
+
+    button {
+        max-width: 600px;
+    }
+}

@@ -1,0 +1,135 @@
+/* Estilos generales para la interfaz de Detalles de Categoría */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    background-color: #000000; /* Fondo negro */
+    margin: 0;
+    padding: 30px;
+    color: #ffffff;
+    text-align: center;
+}
+
+h1 {
+    font-size: 60px; /* Tamaño de título grande */
+    color: #ffffff;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+p {
+    font-size: 24px;
+    color: #b3b3b3;
+    margin-bottom: 20px;
+}
+
+/* Contenedor de cada platillo */
+.category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Estructura de cada item */
+.item-container {
+    display: grid;
+    grid-template-columns: 1fr auto auto auto; /* Distribuye el espacio */
+    align-items: center;
+    background-color: #333333;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 500px;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.item-container span {
+    font-size: 24px;
+    text-align: left;
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Agrega "..." si el texto es muy largo */
+}
+
+/* Botones de cantidad */
+button {
+    background-color: #ff7b00; /* Color naranja */
+    color: white;
+    font-size: 24px; /* Tamaño grande */
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+    min-width: 50px; /* Asegura que todos los botones tengan el mismo ancho mínimo */
+    margin: 0; /* Elimina el margen para acercar los botones a la cantidad */
+}
+
+button:hover {
+    background-color: #b33900; /* Efecto hover */
+}
+
+/* Estilo para la cantidad */
+.quantity {
+    font-size: 24px;
+    text-align: center;
+    padding: 0 5px; /* Espacio pequeño a los lados para que se ajuste entre los botones */
+    min-width: 30px; /* Asegura un ancho mínimo */
+}
+
+/* Total */
+.total {
+    font-size: 32px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 30px;
+}
+
+/* Botón de regreso */
+a button {
+    background-color: #28a745; /* Verde para el botón de regreso */
+    color: white;
+    font-size: 24px;
+    padding: 20px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 30px;
+    max-width: 400px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+}
+
+a button:hover {
+    background-color: #218838; /* Hover para el botón de regreso */
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Ajustes para pantallas grandes */
+@media (min-width: 600px) {
+    h1 {
+        font-size: 80px; /* Título más grande en pantallas grandes */
+    }
+
+    .item-container span, .quantity, button {
+        font-size: 28px;
+    }
+
+    .total {
+        font-size: 36px;
+    }
+
+    a button {
+        max-width: 600px;
+    }
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles de {{ categoria|title }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/detalle_comida.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+<body>
+    <h1>Menú de {{ categoria|title }}</h1>
+
+    {% if platillos %}
+        <div class="category">
+            {% for platillo in platillos %}
+                <div class="item-container" data-price="{{ platillo.precio }}" data-nombre="{{ platillo.nombre }}" data-categoria="{{ categoria }}">
+                    <span>{{ platillo.nombre }} - ${{ platillo.precio }}</span>
+                    <button onclick="changeQuantity(this, -1)">-</button>
+                    <span class="quantity">0</span>
+                    <button onclick="changeQuantity(this, 1)">+</button>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No hay platillos disponibles en esta categoría.</p>
+    {% endif %}
+
+    <p class="total">Total: $<span id="total">0.00</span></p>
+
+    <script>
+        function changeQuantity(button, change) {
+            const itemContainer = button.parentElement;
+            const quantityElem = itemContainer.querySelector('.quantity');
+            const price = parseFloat(itemContainer.getAttribute('data-price'));
+            const nombre = itemContainer.getAttribute('data-nombre');
+            const categoria = itemContainer.getAttribute('data-categoria');
+            let quantity = parseInt(quantityElem.textContent);
+    
+            // Actualiza la cantidad y asegura que no sea menor que 0
+            quantity = Math.max(0, quantity + change);
+            quantityElem.textContent = quantity;
+    
+            // Llama a la función para guardar la cantidad en el servidor
+            saveQuantity(categoria, nombre, quantity);
+    
+            // Actualiza el total
+            updateTotal();
+        }
+    
+        function saveQuantity(categoria, nombre, cantidad) {
+            fetch("{% url 'pedidos:actualizar_cantidad' %}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "X-CSRFToken": "{{ csrf_token }}"
+                },
+                body: `categoria=${categoria}&nombre=${nombre}&cantidad=${cantidad}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (!data.success) {
+                    console.error("Error al actualizar la cantidad en la sesión");
+                }
+            })
+            .catch(error => console.error('Error en la solicitud:', error));
+        }
+    
+        function updateTotal() {
+            let total = 0;
+            document.querySelectorAll('.item-container').forEach(item => {
+                const quantity = parseInt(item.querySelector('.quantity').textContent);
+                const price = parseFloat(item.getAttribute('data-price'));
+                total += quantity * price;
+            });
+    
+            document.getElementById('total').textContent = total.toFixed(2);
+        }
+    </script>
+    
+
+    <a href="{% url 'pedidos:comida' %}"><button>Regresar al Menú de Comida</button></a>
+</body>
+</html>

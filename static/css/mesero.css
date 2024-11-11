@@ -1,0 +1,96 @@
+/* CSS para Menú de Mesero con Botones de Cliente */
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    margin: 0;
+    padding: 30px;
+    color: #333;
+}
+
+h1 {
+    font-size:50px; /* Título extremadamente grande */
+    color: #ffffff;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.category-button, .action-button, a button {
+    font-size: 38px; /* Tamaño del texto grande para botones */
+    padding: 30px 40px; /* Botones grandes y fáciles de presionar */
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 20px 0;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 300px; /* Máximo ancho para pantallas grandes */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+    text-align: center;
+    color: white;
+}
+
+.category-button {
+    background-color: #ff7b00; 
+    color: white;
+    font-size: 38px; /* Tamaño del texto grande para botones */
+    padding: 30px 40px; /* Botones grandes y fáciles de presionar */
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 20px 0;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 300px; /* Máximo ancho para pantallas grandes */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+    text-align: center;/* Color naranja para "Bebidas" y "Comida" como en Cliente */
+}
+
+.category-button:hover {
+    background-color: #b33900; /* Efecto hover para el botón de categoría */
+}
+
+.action-button {
+    background-color: #28a745; 
+    /* Color verde para "Editar Orden" */
+}
+
+.action-button:hover {
+    background-color: #218838; /* Color de hover para "Editar Orden" */
+}
+
+a button {
+    background-color: #ff7b00;
+     /* Botón de "Regresar al Inicio" */
+}
+
+a button:hover {
+    background-color: #b33900;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Ajustes para pantallas grandes */
+@media (min-width: 600px) {
+    h1 {
+        font-size: 64px; /* Ajuste de tamaño para pantallas grandes */
+    }
+
+    .category-button, .action-button, a button {
+        max-width: 600px; /* Ajuste de ancho máximo para pantallas grandes */
+    }
+}
