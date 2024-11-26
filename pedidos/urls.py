@@ -1,6 +1,9 @@
 from django.urls import path
 from . import views
 from .views import CustomLoginView
+from django.views.generic.base import RedirectView
+from django.contrib.staticfiles.storage import staticfiles_storage
+
 
 app_name ="pedidos"
 urlpatterns = [
@@ -21,4 +24,5 @@ urlpatterns = [
     path('seleccionar_mesa/<str:mesa_id>/', views.seleccionar_mesa, name='seleccionar_mesa'),
     path('reiniciar_pedido/', views.reiniciar_pedido, name='reiniciar_pedido'),
     path('actualizar_cantidad_bebida/', views.actualizar_cantidad_bebida, name='actualizar_cantidad_bebida'),
+    path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url('images/favicon.ico'))),
 ]

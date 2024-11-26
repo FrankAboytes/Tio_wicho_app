@@ -143,12 +143,16 @@ CORS_ALLOW_ALL_ORIGINS = False
 
 ALLOWED_HOSTS = ['localhost',
                 '127.0.0.1',
-                '1839-207-249-176-128.ngrok-free.app',
+                'a0f6-207-249-176-127.ngrok-free.app',
                 '192.168.0.1',
                 ]
 
-NGROK_URL = os.getenv('NGROK_URL', 'https://1839-207-249-176-128.ngrok-free.app')
+NGROK_URL = os.getenv('NGROK_URL', 'https://a0f6-207-249-176-127.ngrok-free.app ')
 
-CORS_ALLOWED_ORIGINS = [NGROK_URL] if NGROK_URL else []
-CSRF_TRUSTED_ORIGINS = [NGROK_URL] if NGROK_URL else []
+CSRF_TRUSTED_ORIGINS = [
+    'https://a0f6-207-249-176-127.ngrok-free.app',
+]
 
+CORS_ALLOWED_ORIGINS = [
+    'https://a0f6-207-249-176-127.ngrok-free.app',
+]
